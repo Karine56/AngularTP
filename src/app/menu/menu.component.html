@@ -1,0 +1,21 @@
+<!--Navbar-->
+<nav class="navbar navbar-light navbar-1 white">
+
+    <h2>{{ title }}</h2>
+    <!-- bouton navigation sur lequel pointe l'écouteur d'évènement-->
+    <button class="navbar btn btn-success" type="button" (click)="ngOnClick()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- s'affiche uniquement si le bouton est activé-->
+    <div class="navbar-collapse" [hidden]="!isActive">
+       <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="#" class="nav-link">Races</a>
+            </li>
+       </ul>
+    </div>
+
+</nav>
+
+

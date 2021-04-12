@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TP01-Angular';
+  title = 'TP 01 Angular - Composants et boutons';
+  eleve = "Karine GIRARDIN";
 }
