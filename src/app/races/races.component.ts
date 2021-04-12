@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { VilleModel} from '../models/ville.model';
+import { AppareilService } from '../service/Appareil.service';
 
 @Component({
   selector: 'app-races',
@@ -7,20 +8,33 @@ import { VilleModel} from '../models/ville.model';
   styleUrls: ['./races.component.css']
 })
 export class RacesComponent implements OnInit {
-  // initialise les valeurs
-  // le @Input() indique qu'elle pourra être modifiée/initialisée
-    //@Input()ville1:string = 'Vannes';
-    //@Input()ville2:string = 'Lorient';
-    //@Input()ville3:string = 'Auray';
-    //@Input()ville4:string = 'Nantes';
 
-    villes: Array<VilleModel> = [];
+    villes: any[];
 
-
-  constructor() { }
+  constructor(private appareilService: AppareilService) { }
 
   ngOnInit(): void {
-    this.villes = [{ name: 'Vannes'}, { name: 'Lorient'}, { name: 'Auray'}, {name: 'Nantes'}]
+      // va chercher les valeurs via définies dans le service
+    this.villes = this.appareilService.villes;
+  }
+
+  onAllumer() {
+    if(confirm('Etes vous sûr de vouloir allumer ?')) {
+        this.appareilService.switchOnAll;
+        console.log(this.appareilService.villes)
+    }
+    else {
+        return null;
+    }
+  }
+
+  onEteindre() {
+      if(confirm('Etes vous sûr de vouloir éteindre ?')) {
+          this.appareilService.switchOffAll;
+      }
+      else {
+          return null;
+      }
   }
 
 }

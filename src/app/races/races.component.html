@@ -1,12 +1,22 @@
-<p>Test</p>
-<ul class="list-ville">
-    <div *ngFor="let ville of villes">
-        <li [ngClass] = "{'list-group-item': true,
-                            'list-group-item-success': ville.name == 'Vannes',
-                            'list-group-item-danger': ville.name == 'Lorient' }">
-            <h2>{{ ville.name }}</h2>
-            <input type="text" class="form-control list-ville-input"[(ngModel)]="ville.name">
-        </li>
-    </div>
-</ul>
+<div>
+    <ul class="list-ville">
+        <div *ngFor="let ville of villes; index as i ">
+            <li [ngClass] = "{'list-group-item': true,
+                              'list-group-item-success': ville.status === 'allume',
+                              'list-group-item-danger': ville.status === 'eteint' }">
+                <h2>{{ ville.name }}</h2>
+                <input type="text" class="form-control list-ville-input"[(ngModel)]="ville.name">
+                <div class="status-button">
+                    <button class="btn" (click)="onAllumer()" *ngIf="ville.status === 'eteint'">Allumer</button>
+                    <button class="btn" (click)="onEteindre()" *ngIf="ville.status === 'allume'">Eteindre</button>
+                </div>
+            </li>
+        </div>
+    </ul>
+</div>
+
+<div>
+    <button class="btn btn-success" (click)="onAllumer()" >Tout allumer</button>    
+    <button class="btn btn-danger"  (click)="onEteindre()">Tout éteindre</button>
+</div>
 
