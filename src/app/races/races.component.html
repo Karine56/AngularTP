@@ -1,0 +1,12 @@
+<p>Test</p>
+<ul class="list-ville">
+    <div *ngFor="let ville of villes">
+        <li [ngClass] = "{'list-group-item': true,
+                            'list-group-item-success': ville.name == 'Vannes',
+                            'list-group-item-danger': ville.name == 'Lorient' }">
+            <h2>{{ ville.name }}</h2>
+            <input type="text" class="form-control list-ville-input"[(ngModel)]="ville.name">
+        </li>
+    </div>
+</ul>
+

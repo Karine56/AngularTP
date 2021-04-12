@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  title = "Pony Racer";
+  title = "PonyRacer";
   isActive = false;
 
   constructor() { }
