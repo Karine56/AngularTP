@@ -12,6 +12,7 @@ export class AppComponent {
 
   constructor( private router:Router) {
     // force, au démarrage, le path auth pour l'avoir dans l'url
-    this.router.navigate(['listeville']);
+    //this.router.navigate(['listeville']);
+    this.router.navigate(['auth']);
   }
 }
