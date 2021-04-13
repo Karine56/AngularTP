@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TP 03 Angular - Services et gestion d\'indice';
+  title = 'TP 04 Angular - Pipe';
   eleve = "Karine GIRARDIN";
 }

@@ -1,6 +1,6 @@
 <div>
     <ul class="list-ville">
-        <div *ngFor="let ville of villes; index as i ">
+        <div *ngFor="let ville of villes  | slice:0:4">
             <li [ngClass] = "{'list-group-item': true,
                               'list-group-item-success': ville.status === 'allume',
                               'list-group-item-danger': ville.status === 'eteint' }">

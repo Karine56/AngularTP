@@ -19,8 +19,8 @@ export class RacesComponent implements OnInit {
   }
 
   onAllumer() {
-    if(confirm('Etes vous sûr de vouloir allumer ?')) {
-        this.appareilService.switchOnAll;
+    if(confirm('Etes vous sûr de vouloir tout allumer ?')) {
+        this.appareilService.switchOnAll();
         console.log(this.appareilService.villes)
     }
     else {
@@ -29,8 +29,8 @@ export class RacesComponent implements OnInit {
   }
 
   onEteindre() {
-      if(confirm('Etes vous sûr de vouloir éteindre ?')) {
-          this.appareilService.switchOffAll;
+      if(confirm('Etes vous sûr de vouloir tout éteindre ?')) {
+          this.appareilService.switchOffAll();
       }
       else {
           return null;

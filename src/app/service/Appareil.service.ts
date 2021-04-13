@@ -11,7 +11,19 @@ villes = [
     },
     { name: 'Lorient',
       status: 'eteint' 
-  },
+    },
+    { name: 'Auray',
+      status: 'eteint' 
+    },
+    { name: 'Nantes',
+      status: 'allume' 
+    },
+    { name: 'Rennes',
+      status: 'eteint' 
+    },
+    { name: 'Paimpol',
+      status: 'allume' 
+    },
 ];
 
 ngOnInit() {   
@@ -20,15 +32,16 @@ ngOnInit() {
 switchOnAll() {
     for(let ville of this.villes) {
         ville.status = "allume";
-        console.log(ville.status)
     }
 }
+
 
 switchOffAll() {
     for(let ville of this.villes) {
         ville.status = "eteint"
     }
 }
+
 
 constructor() {}
 }
