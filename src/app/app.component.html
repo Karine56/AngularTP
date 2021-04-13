@@ -1,19 +1,10 @@
-
 <div class="navbar-ponyracer">
-  <app-menu></app-menu>
+    <app-menu></app-menu>
 </div>
-
-<div class="container">  
-    <div class="row">    
-        <div style="width:100%">
-            <app-ponyracer></app-ponyracer>
-            <app-races></app-races>
-        </div>
-    </div>
-</div>
+<router-outlet></router-outlet>
 
 <div>
-  <hr>
-  <p class="text-center font-italic text-uppercase">{{ title }}</p>  
-  <p class="text-center font-italic font-weight-light">Apprenant : {{ eleve }}</p>  
-</div>
+    <hr>
+    <p class="text-center font-italic text-uppercase">{{ title }}</p>  
+    <p class="text-center font-italic font-weight-light">Apprenant : {{ eleve }}</p>  
+  </div>

@@ -1,14 +1,17 @@
 <div>
     <ul class="list-ville">
-        <div *ngFor="let ville of villes  | slice:0:4">
+        <div *ngFor="let ville of villes  | slice:0:4; index as i"
+        [id]="ville.id">
             <li [ngClass] = "{'list-group-item': true,
                               'list-group-item-success': ville.status === 'allume',
                               'list-group-item-danger': ville.status === 'eteint' }">
                 <h2>{{ ville.name }}</h2>
                 <input type="text" class="form-control list-ville-input"[(ngModel)]="ville.name">
-                <div class="status-button">
-                    <button class="btn" (click)="onAllumer()" *ngIf="ville.status === 'eteint'">Allumer</button>
-                    <button class="btn" (click)="onEteindre()" *ngIf="ville.status === 'allume'">Eteindre</button>
+                <div class="status-button my-3">
+                    <button class="btn" (click)="onSwitch(i)">Changer le statut</button>
+                    <button class="btn mx-3">
+                        <a [routerLink]="i">Détail</a>
+                    </button>
                 </div>
             </li>
         </div>
@@ -16,7 +19,11 @@
 </div>
 
 <div>
-    <button class="btn btn-success" (click)="onAllumer()" >Tout allumer</button>    
-    <button class="btn btn-danger"  (click)="onEteindre()">Tout éteindre</button>
+    <button class="btn btn-success" (click)="onAllumer()">
+        Tout allumer
+    </button>    
+    <button class="btn btn-danger"  (click)="onEteindre()">
+        Tout éteindre
+    </button>
 </div>
 
