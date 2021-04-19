@@ -45,14 +45,16 @@ export class RacesComponent implements OnInit {
   }
 
   onSwitch(index) {
-      if (this.villes[index].status =='allume') {
+
+      let ville = this.villes[index]
+      ville.status = ville.status === 'allume' ? 'eteint' : 'allume'
+      /*if (this.villes[index].status =='allume') {
         this.villes[index].status = 'eteint'
       }
       else {
         this.villes[index].status = 'allume'
       }
-      
-      
+      */  
   }
 
 }
