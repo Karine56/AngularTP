@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TP 06 Angular - Routes';
+  title = 'TP 10 Angular - Formulaire méthode réactive';
   eleve = "Karine GIRARDIN";
 
   constructor( private router:Router) {

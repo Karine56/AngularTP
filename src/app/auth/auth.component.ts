@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
   onSignIn() {    
     this.authService.signIn().then(     
      () => {        
-        console.log('authentification OK !');       
+        //console.log('authentification OK !');       
         this.authStatus = this.authService.isAuth;		
         this.router.navigate(['listeville']);
       }    

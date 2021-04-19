@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from'@angular/forms';
+import { FormsModule, ReactiveFormsModule} from'@angular/forms';
 import { RouterModule,Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -10,13 +10,14 @@ import { AuthComponent } from './auth/auth.component';
 import { SingleraceComponent } from './singlerace/singlerace.component';
 import { AuthService } from './auth.service'
 import { AuthGuard } from './auth-guard.service';
-import { EditCaracteristiqueComponent } from './edit-caracteristique/edit-caracteristique.component';
+import { NewCityComponent } from './new-city/new-city.component';
 
-const appRoutes: Routes = [  
+const appRoutes: Routes = [
     { path: 'auth', component: AuthComponent },
     { path: 'listeville', canActivate: [AuthGuard], component: RacesComponent },
     { path: 'listeville/:id', canActivate: [AuthGuard], component: SingleraceComponent },
-    { path: 'edit', canActivate: [AuthGuard], component: EditCaracteristiqueComponent }
+    { path: 'new', canActivate: [AuthGuard], component: NewCityComponent },
+
     
 ];
 
@@ -28,11 +29,12 @@ const appRoutes: Routes = [
     RacesComponent,
     AuthComponent,
     SingleraceComponent,
-    EditCaracteristiqueComponent
+    NewCityComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes) 
   ],
   providers: [AppareilService, AuthService, AuthGuard],

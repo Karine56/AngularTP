@@ -50,13 +50,16 @@ export class AppareilService {
     ];
 
     // of : observable
+    
     getVille() {
         return of (this.villes)
     }
+    
 
 /*emitVilleSubject() {
     this.villeSubject.next(this.villes.slice());
-}*/
+}
+*/
 
 
 addVille(name: string, specialite: string, status:string) { const villeObject = {id: 0, name:'', specialite:'', status:'eteint' };
