@@ -17,20 +17,18 @@ export class RacesComponent implements OnInit {
   constructor(private appareilService: AppareilService) { }
 
   ngOnInit(): void {
-      // va chercher les valeurs via définies dans le service
-    //this.villes = this.appareilService.villes;
-    this.villeSubscription = this.appareilService.villeSubject.subscribe(
+    // this.villeSubscription = this.appareilService.villeSubject.subscribe(
+      this.appareilService.getVille().subscribe(
       (villes: any[]) => {
           this.villes = villes;
       }
     );
-    this.appareilService.emitVilleSubject();
+    //this.appareilService.emitVilleSubject();
   }
 
   onAllumer() {
     if(confirm('Etes vous sûr de vouloir tout allumer ?')) {
         this.appareilService.switchOnAll();
-        console.log(this.appareilService.villeSubject)
     }
     else {
         return null;
@@ -47,12 +45,14 @@ export class RacesComponent implements OnInit {
   }
 
   onSwitch(index) {
-    if (this.villes[index].status =='allume') {
-      this.villes[index].status = 'eteint'
-    }
-    else {
-      this.villes[index].status = 'allume'
-    }
+      if (this.villes[index].status =='allume') {
+        this.villes[index].status = 'eteint'
+      }
+      else {
+        this.villes[index].status = 'allume'
+      }
+      
+      
   }
 
 }

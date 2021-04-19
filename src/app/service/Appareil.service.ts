@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { of } from 'rxjs';
 
 @Injectable({  
 providedIn: 'root'
@@ -7,7 +8,7 @@ providedIn: 'root'
 
 export class AppareilService {
 
-    villeSubject = new Subject<any[]>();
+    //villeSubject = new Subject<any[]>();
 
     private villes = [
         { 
@@ -48,8 +49,23 @@ export class AppareilService {
         },
     ];
 
-emitVilleSubject() {
+    // of : observable
+    getVille() {
+        return of (this.villes)
+    }
+
+/*emitVilleSubject() {
     this.villeSubject.next(this.villes.slice());
+}*/
+
+
+addVille(name: string, specialite: string, status:string) { const villeObject = {id: 0, name:'', specialite:'', status:'eteint' };
+    villeObject.name = name;
+    villeObject.specialite = specialite;
+    villeObject.status = 'eteint'
+    villeObject.id = this.villes[(this.villes.length -1)].id +1;
+    this.villes.push(villeObject);
+    //this.emitVilleSubject();
 }
 
 getVilleById(id: number) {
@@ -67,7 +83,7 @@ switchOnAll() {
         ville.status = "allume";
     }
     // pour voir la modification en temps réel (pas possible sans car private)
-    this.emitVilleSubject();
+    //this.emitVilleSubject();
 }
 
 
@@ -76,7 +92,7 @@ switchOffAll() {
         ville.status = "eteint"
     }
     // pour voir la modification en temps réel (pas possible sans car private)
-    this.emitVilleSubject();
+    //this.emitVilleSubject();
 }
 
 

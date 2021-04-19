@@ -9,12 +9,11 @@
 
     <!-- s'affiche uniquement si le bouton est activé-->
     <div class="navbar-collapse" [hidden]="!isActive">
-       <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="#" class="nav-link">Races</a>
-                <a href="#" class="nav-link">Authentication</a>
-            </li>
-       </ul>
+        <ul class="navbar-nav mr-auto">
+            <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>        
+            <li routerLinkActive="active"><a routerLink="listeville">Caracteristiques</a></li> 
+            <li routerLinkActive="active"><a routerLink="edit">Nouvelle Ville</a></li>
+        </ul>
     </div>
 
 </nav>
