@@ -33,28 +33,26 @@ export class NewCityComponent implements OnInit {
     }   
 
     onSubmitForm() {
-        const formValue = this.cityForm.value; 
-            const newCity = new VilleModel (
-                formValue['name'],
-                formValue['specialite'],
-                formValue['status'],
-                // id auto-généré ?
-                formValue['id']   
-            );
-        //this.appareilService.addVille(newCity);
-        this.appareilService.addVille;
+        const formValue = this.cityForm.value;
+        const newCity = new VilleModel( 1 , formValue['name'], formValue['status'], formValue['specialite'])
+
+        this.appareilService.addVille(newCity);
         this.router.navigate['/listeville'];
-        
     }
 
+    nSave() {
+        this.appareilService.saveVillesToServer();
+        this.router.navigate['/listeville'];
+    }
+    
   /*
-  onSubmit(form: NgForm) {  
-    const name = form.value['name'];
-    const specialite = form.value['specialite'];
-    this.appareilService.addVille(name, specialite, status);
-    this.router.navigate(['/listeville']);
-    console.log(form.value);
-}
+    onSubmit(form: NgForm) {  
+        const name = form.value['name'];
+        const specialite = form.value['specialite'];
+        this.appareilService.addVille(name, specialite, status);
+        this.router.navigate(['/listeville']);
+        console.log(form.value);
+    }
 */
 
 

@@ -5,13 +5,13 @@
                   <div class="form-group">        
                         <label for="name">Nom de la ville</label>        
                         <!-- <input type="text" id="name" class="form-control" name="name" ngModel required> -->
-                        <input type="text" id="name" class="form-control" formControleName="name">
+                        <input type="text" id="name" class="form-control" formControlName="name">
                   </div> 
 
                   <div class="form-group">        
                         <label for="specialite">Specialite de la ville</label>        
                         <!-- <input type="text" id="specialite" class="form-control" name="specialite" ngModel required> -->
-                        <input type="text" id="specialite" class="form-control" formControleName="specialite">
+                        <input type="text" id="specialite" class="form-control" formControlName="specialite">
                   </div>   
 
                   <div class="form-group">        
@@ -23,12 +23,12 @@
                         </select>
                   </div>
 
-                  <!-- 
-                  <input type="hidden" value="" formControlName="id" id="id">
-                  --> 
-                  
                   <!-- <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Enregistrer</button> -->
+                  
                   <button class="btn btn-primary" type="submit" [disabled]="cityForm.invalid">Enregistrer</button>
+
+                  <button class="btn btn-primary" (click)="onSave()">Enregistrer les villes en Bdd</button>
+
             </form>  
        </div>
 </div>

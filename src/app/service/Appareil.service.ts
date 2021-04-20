@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { VilleModel} from '../models/ville.model';
 
 @Injectable({  
 providedIn: 'root'
@@ -49,26 +51,35 @@ export class AppareilService {
         },
     ];
 
-    // of : observable
-    
+    // of : observable  
     getVille() {
         return of (this.villes)
     }
     
-
-/*emitVilleSubject() {
+/*
+emitVilleSubject() {
     this.villeSubject.next(this.villes.slice());
 }
 */
 
 
-addVille(name: string, specialite: string, status:string) { const villeObject = {id: 0, name:'', specialite:'', status:'eteint' };
+
+// addVille (name: string, specialite: string, status:string) { 
+    addVille (villeObject: VilleModel) {
+    /*
+    const villeObject = {id: 0, name:'', specialite:'', status:'eteint' };
     villeObject.name = name;
     villeObject.specialite = specialite;
-    villeObject.status = 'eteint'
+    villeObject.status = status;
+    */
     villeObject.id = this.villes[(this.villes.length -1)].id +1;
+    console.log("villeObject name: " + villeObject.name);
+    console.log("villeObject specialite: " + villeObject.specialite);
+    console.log("villeObject status: " + villeObject.status);
+
     this.villes.push(villeObject);
-    //this.emitVilleSubject();
+    
+    // this.emitVilleSubject();
 }
 
 getVilleById(id: number) {
@@ -86,7 +97,7 @@ switchOnAll() {
         ville.status = "allume";
     }
     // pour voir la modification en temps réel (pas possible sans car private)
-    //this.emitVilleSubject();
+    // this.emitVilleSubject();
 }
 
 
@@ -95,11 +106,37 @@ switchOffAll() {
         ville.status = "eteint"
     }
     // pour voir la modification en temps réel (pas possible sans car private)
-    //this.emitVilleSubject();
+    // this.emitVilleSubject();
 }
 
+// constructor(){}
+constructor(private httpClient: HttpClient) {}
 
-constructor() {}
+
+saveVillesToServer() {    
+    this.httpClient      
+    .put('https://angulartp11-c2fdd-default-rtdb.firebaseio.com/city.json',this.villes)     
+    .subscribe( () => {
+        console.log('Enregistrement terminé !');},        
+        (error) => {
+            console.log('Erreur onSave() en bdd ! : ' + error);
+        }      
+    );
 }
 
+getVillesFromServer() {
+    this.httpClient      
+    .get<VilleModel[]>('https://angulartp11-c2fdd-default-rtdb.firebaseio.com/city.json')      
+    .subscribe( (response) => {          
+        this.villes = response;          
+        this.getVille();        
+        },        
+        (error) => {
+            console.log('Erreur ! : ' + error);
+        }      
+    );
+}
 
+   
+
+}

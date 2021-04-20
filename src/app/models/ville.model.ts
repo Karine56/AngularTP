@@ -1,10 +1,10 @@
 export class VilleModel {
     
     constructor(
-        id: number,
-        name: string,
-        status: string,
-        specialite: string
+        public id: number,
+        public name: string,
+        public status: string,
+        public specialite: string
     ) {}
    
 }
